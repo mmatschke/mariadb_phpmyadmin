@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  db:
+    image: mariadb:latest
+    restart: always
+    command: --init-file /data/application/init.sql
+    volumes:
+      - ./init.sql:/data/application/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: '!msd4SQLAdmin%'
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      - PMA_ARBITRARY=1
