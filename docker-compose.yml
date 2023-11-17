@@ -8,7 +8,8 @@ services:
     volumes:
       - ./init.sql:/data/application/init.sql
     environment:
-      MYSQL_ROOT_PASSWORD: '!msd4SQLAdmin%'
+      - MYSQL_ALLOW_EMPTY_PASSWORD= yes
+      # MYSQL_ROOT_PASSWORD: 'password'
 
   phpmyadmin:
     image: phpmyadmin
